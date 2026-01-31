@@ -44,6 +44,10 @@ vim.keymap.set("n", "<Esc>", "<Cmd>noh<CR>", {
     desc = "Turn off search highlights",
 })
 
+vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", {
+    desc = "Exit terminal mode",
+})
+
 -------------------------------- [Autocommands] -------------------------------
 vim.api.nvim_create_autocmd("TextYankPost", {
     desc = "Highlight text on yank",
