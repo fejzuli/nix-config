@@ -9,7 +9,10 @@ in
     users.users.merlin = {
       isNormalUser = true;
       description = fullName;
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+      ];
     };
   };
 
@@ -20,22 +23,24 @@ in
     };
   };
 
-  flake.modules.homeManager.merlin = { mkHomePath, ... }: {
-    imports = [
-      self.modules.homeManager.terminal
-    ];
+  flake.modules.homeManager.merlin =
+    { mkHomePath, ... }:
+    {
+      imports = [
+        self.modules.homeManager.terminal
+      ];
 
-    home = {
-      inherit username;
-      homeDirectory = mkHomePath username;
-    };
-
-    programs.git.settings = {
-      user = {
-        inherit email;
-        name = fullName;
+      home = {
+        inherit username;
+        homeDirectory = mkHomePath username;
       };
-      init.defaultBranch = "main";
+
+      programs.git.settings = {
+        user = {
+          inherit email;
+          name = fullName;
+        };
+        init.defaultBranch = "main";
+      };
     };
-  };
 }

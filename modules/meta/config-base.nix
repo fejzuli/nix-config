@@ -2,7 +2,10 @@
 let
   common = {
     system.configurationRevision = self.rev or self.dirtyRev or null;
-    nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    nix.settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
   };
 in
 {
