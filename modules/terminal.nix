@@ -9,6 +9,10 @@ let
   };
 in
 {
+  flake.modules.nixos.terminal = {
+    imports = [ common ];
+  };
+
   flake.modules.darwin.terminal = {
     imports = [ common ];
   };
@@ -21,8 +25,14 @@ in
     ];
 
     programs = {
+      direnv = {
+        enable = true;
+        enableFishIntegration = true;
+        nix-direnv.enable = true;
+      };
       fd.enable = true;
       fzf.enable = true;
+      git.enable = true;
       neovim = {
         enable = true;
         defaultEditor = true;

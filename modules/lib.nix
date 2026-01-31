@@ -11,6 +11,16 @@
       _module.args = { inherit pkgs-stable; };
     });
   in {
+    mkNixos = system: name: {
+      ${name} = inputs.nixpkgs.lib.nixosSystem {
+        modules = [
+          (injectPkgs system)
+          self.modules.nixos.config-base
+          self.modules.nixos.${name}
+        ];
+      };
+    };
+
     mkDarwin = system: name: {
       ${name} = inputs.nix-darwin.lib.darwinSystem {
         modules = [

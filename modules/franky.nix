@@ -9,6 +9,8 @@
       self.modules.darwin.home-manager
     ];
 
+    networking.hostName = "franky";
+
     security.pam.services.sudo_local.touchIdAuth = true;
 
     home-manager.users.merlin = self.modules.homeManager.merlin;

@@ -1,19 +1,41 @@
 { self, ... }:
 let
-  description = "Merlin Attila Fejzuli";
+  username = "merlin";
+  fullName = "Merlin Attila Fejzuli";
+  email = "merlin@fejzuli.com";
 in
 {
-  flake.modules.darwin.merlin = {
+  flake.modules.nixos.merlib = {
     users.users.merlin = {
-      inherit description;
-      home = "/Users/merlin";
+      isNormalUser = true;
+      description = fullName;
+      extraGroups = [ "networkmanager" "wheel" ];
     };
   };
 
-  flake.modules.homeManager.merlin = { mkHome, ... }: {
+  flake.modules.darwin.merlin = {
+    users.users.merlin = {
+      description = fullName;
+      home = "/Users/${username}";
+    };
+  };
+
+  flake.modules.homeManager.merlin = { mkHomePath, ... }: {
     imports = [
       self.modules.homeManager.terminal
     ];
-    home.homeDirectory = mkHome "merlin";
+
+    home = {
+      inherit username;
+      homeDirectory = mkHomePath username;
+    };
+
+    programs.git.settings = {
+      user = {
+        inherit email;
+        name = fullName;
+      };
+      init.defaultBranch = "main";
+    };
   };
 }
