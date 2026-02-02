@@ -3,15 +3,45 @@ return {
     priority = 1000,
     lazy = false,
     keys = {
-        { "<Leader>pp", function() Snacks.picker() end },
-        { "<Leader><Space>", function() Snacks.picker.smart() end, },
-        { "<Leader>ff", function() Snacks.picker.files() end, desc = "Find files" },
-        { "<Leader>gr", function() Snacks.picker.grep() end, desc = "Find files" },
-        { "<Tab>", function() Snacks.picker.explorer() end, desc = "File tree" },
+        {
+            "<Leader>pp",
+            function() Snacks.picker() end,
+        },
+        {
+            "<Leader><Space>",
+            function() Snacks.picker.smart() end,
+        },
+        {
+            "<Leader>ff",
+            function() Snacks.picker.files() end,
+            desc = "Find files",
+        },
+        {
+            "<Leader>gr",
+            function() Snacks.picker.grep() end,
+            desc = "Find files",
+        },
+        {
+            "<Tab>",
+            function() Snacks.picker.explorer() end,
+            desc = "File tree",
+        },
         -- Help
-        { "<Leader>hh", function() Snacks.picker.help() end, desc = "Find help" },
-        { "<Leader>hk", function() Snacks.picker.keymaps() end, desc = "Find keymap" },
-        { "<Leader>hc", function() Snacks.picker.commands() end, desc = "Find command" },
+        {
+            "<Leader>hh",
+            function() Snacks.picker.help() end,
+            desc = "Find help",
+        },
+        {
+            "<Leader>hk",
+            function() Snacks.picker.keymaps() end,
+            desc = "Find keymap",
+        },
+        {
+            "<Leader>hc",
+            function() Snacks.picker.commands() end,
+            desc = "Find command",
+        },
     },
     ---@module "snacks"
     ---@type snacks.config

@@ -3,9 +3,7 @@ return {
     keys = {
         {
             "grf",
-            function()
-                require("conform").format()
-            end,
+            function() require("conform").format() end,
             mode = { "n", "v" },
             desc = "Format code",
         },

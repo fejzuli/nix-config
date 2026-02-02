@@ -23,9 +23,9 @@ vim.o.cursorline = true
 vim.o.colorcolumn = "80"
 vim.o.list = true
 vim.opt.listchars = {
-    tab = '» ',
-    trail = '·',
-    nbsp = '␣',
+    tab = "» ",
+    trail = "·",
+    nbsp = "␣",
 }
 
 vim.o.breakindent = true
@@ -51,10 +51,12 @@ vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", {
 -------------------------------- [Autocommands] -------------------------------
 vim.api.nvim_create_autocmd("TextYankPost", {
     desc = "Highlight text on yank",
-    group = vim.api.nvim_create_augroup("merlin-highlight-yank", { clear = true }),
+    group = vim.api.nvim_create_augroup(
+        "merlin-highlight-yank",
+        { clear = true }
+    ),
     callback = function() vim.hl.on_yank() end,
 })
-
 
 -------------------------------- [Usercommands] -------------------------------
 vim.api.nvim_create_user_command("FactoryReset", function()
@@ -75,13 +77,11 @@ Do you wish to continue?]],
     end
 end, { desc = "Delete everything from share/nvim and state/nvim" })
 
-
 ------------------------------------ [LSP] ------------------------------------
 vim.lsp.enable({
     "lua_ls",
     "nil_ls",
 })
-
 
 -------------------------------- [Lazy Setup] ---------------------------------
 local lazy_installer = require("merlin/lazy_installer")
