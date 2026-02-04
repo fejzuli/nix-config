@@ -1,7 +1,12 @@
 { moduleWithSystem, ... }:
 {
-  flake-file.inputs = {
-    nix-auth.url = "github:numtide/nix-auth";
+  flake-file.inputs.nix-auth = {
+    url = "github:numtide/nix-auth";
+    inputs = {
+      nixpkgs.follows = "nixpkgs";
+      flake-parts.follows = "flake-parts";
+      treefmt-nix.follows = "treefmt-nix";
+    };
   };
 
   flake.modules.homeManager.nix-auth = moduleWithSystem (
