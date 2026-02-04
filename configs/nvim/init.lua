@@ -81,6 +81,7 @@ end, { desc = "Delete everything from share/nvim and state/nvim" })
 vim.lsp.enable({
     "lua_ls",
     "nil_ls",
+    "rust_analyzer",
 })
 
 -------------------------------- [Lazy Setup] ---------------------------------
