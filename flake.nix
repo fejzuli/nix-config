@@ -13,6 +13,7 @@
       url = "github:nix-community/home-manager";
     };
     import-tree.url = "github:vic/import-tree";
+    nix-auth.url = "github:numtide/nix-auth";
     nix-darwin = {
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-darwin/nix-darwin";

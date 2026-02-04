@@ -27,6 +27,7 @@ in
     { mkHomePath, ... }:
     {
       imports = [
+        self.modules.homeManager.nix-auth
         self.modules.homeManager.terminal
       ];
 
