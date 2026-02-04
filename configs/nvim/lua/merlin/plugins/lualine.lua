@@ -9,7 +9,7 @@ return {
             lualine_c = {
                 function() return vim.fn.getcwd() end,
             },
-            lualine_x = { "filetype" },
+            lualine_x = {},
             lualine_y = { "progress" },
             lualine_z = { "location" },
         },
